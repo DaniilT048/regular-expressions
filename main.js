@@ -9,9 +9,9 @@ console.log('#11. JavaScript homework example file')
  */
 
 function isValidEmail(email) {
-  return /^[a-zA-Z0-9.-_]+@[a-z]+[.]+[a-z]{2,6}/gi.test(email);   // Не помню что видел, чтоб после @ были большие буквы
+  return /^([a-zA-Z0-9.-_]+)(@)([a-z]+)([.]+[a-z]{2,6})/gi.test(email);   // Не помню что видел, чтоб после @ были большие буквы
 }                                                               // или тире, по этому решил написать именно этот набор символов
-
+                                                                // Поделил всё на группы для красоты)
 console.log(isValidEmail('example@example.com')) // Повинно вивести: true
 console.log(isValidEmail('invalid-email'))       // Повинно вивести: false
 
@@ -28,11 +28,11 @@ console.log(isValidEmail('invalid-email'))       // Повинно вивест�
 */
 
 function isValidUrl(url) {
-
+return /^[http:+s?]+:\/\/([^:/]+)(?::(\d+))?([^?#]*)(\?[^#]*)?(#.*)?$/gi.test(url);
 }
 
-// console.log(isValidUrl('https://www.example.com')) // Повинно вивести: true
-// console.log(isValidUrl('invalid-url'))             // Повинно вивести: false
+console.log(isValidUrl('https://www.example.com')) // Повинно вивести: true
+console.log(isValidUrl('invalid-url'))             // Повинно вивести: false
 
 // Експорт функції для використання та тестування
 export { isValidEmail, isValidUrl }
